@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mytech.cicdwebapp.service.Calculator;
-
 @Controller
 public class HomeController {
 
@@ -29,23 +27,12 @@ public class HomeController {
 	
 	@GetMapping(value = "/getFactorial/{no}")
 	@ResponseBody
-	public int getFactorial(@PathVariable int no) {
-		Calculator cal = (x) -> {
-			int fact =1;
-			if(x==0)
-				return 1;
-			else if(x>0) {
-				for (int i = 1; i <= x;i++) {
-					fact = fact * i;
-				}
-				return fact;
-			}
-			return fact;
-			
-		};		
-		return (int)cal.getFactorial(no);
-		
-		
+	public long getFactorial(@PathVariable int no) {
+	        if (no == 1)     
+	            return 1;
+	        else {
+	            return no * getFactorial(no - 1);    
+	        }
 	}
 	
 }
