@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-                //bat "rmdir  /s /q cicdwebapp/"
-                //bat "git clone https://github.com/brajesh9718/cicdweapprepo.git"
+                bat "rmdir  /s /q cicdwebapp/"
+                bat "git clone https://github.com/brajesh9718/cicdweapprepo.git"
                 bat "mvn clean -f cicdwebapp/"
             }
         }
