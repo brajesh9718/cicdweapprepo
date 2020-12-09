@@ -43,7 +43,9 @@ public class HomeController {
 			return fact;
 			
 		};		
-		return cal.getFactorial(no);
+		return (int)cal.getFactorial(no);
+		
+		
 	}
 	
 }
