@@ -77,7 +77,7 @@ public class HomeController {
 			if(x==0)
 				return 1;
 			else if(x>0) {
-				for (int i = 1; i <= x;i++) 
+				for (int i = 1; i <= x;i++) {
 					fact = fact * i;
 				}
 				return fact;
