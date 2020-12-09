@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mytech.cicdwebapp.dto.Address;
 import com.mytech.cicdwebapp.dto.User;
+import com.mytech.cicdwebapp.service.Calculator;
 import com.mytech.cicdwebapp.service.CalculatorFuntionalInterface;
 
 @RestController
@@ -67,5 +68,25 @@ public class HomeController {
 		};
 		return "Addition of numbers : " + calc.add(no1, no2);
 	}
+	
+	@GetMapping(value = "/getFactorial/{no}")
+	@ResponseBody
+	public int getFactorial(@PathVariable int no) {
+		Calculator cal = (x) -> {
+			int fact =1;
+			if(x==0)
+				return 1;
+			else if(x>0) {
+				for (int i = 1; i <= x;i++) {
+					fact = fact * i;
+				}
+				return fact;
+			}
+			return fact;
+			
+		};		
+		return cal.getFactorial(no);
+	}
+	
 
 }
